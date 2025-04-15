@@ -2,38 +2,68 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Menú SharePoint Estilo</title>
+  <title>Mi sitio con pestañas</title>
   <style>
     body {
       font-family: Arial, sans-serif;
     }
-    .menu {
-      width: 250px;
-      margin: 50px auto;
+
+    .tabs {
+      display: flex;
+      margin-bottom: 10px;
     }
-    .boton {
-      display: block;
-      background-color: #2b6dad;
+
+    .tab-button {
+      background-color: #1e70bf;
       color: white;
-      padding: 10px;
-      margin: 5px 0;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 5px;
+      cursor: pointer;
     }
-    .boton:hover {
-      background-color: #1f5a8e;
+
+    .tab-button.active {
+      background-color: #125a96;
+    }
+
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 15px;
+      background-color: #f9f9f9;
+    }
+
+    .tab-content.active {
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <div class="menu">
-    <a href="#" class="boton">Inicio</a>
-    <a href="#" class="boton">Brigadas de Emergencia</a>
-    <a href="#" class="boton">Encuesta GH</a>
-    <a href="#" class="boton">Nueva Sección</a>
+  <h2>Bienvenido</h2>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="openTab('contenido1')">Pestaña 1</button>
+    <button class="tab-button" onclick="openTab('contenido2')">Pestaña 2</button>
   </div>
 
-</body>
-</html>
+  <div id="contenido1" class="tab-content active">
+    <h3>Contenido de la pestaña 1</h3>
+    <p>Aquí puedes colocar cualquier contenido, como enlaces o documentos.</p>
+  </div>
+
+  <div id="contenido2" class="tab-content">
+    <h3>Contenido de la pestaña 2</h3>
+    <p>Este es el contenido de la segunda pestaña. También puedes usar un iframe aquí si quieres.</p>
+  </div>
+
+  <script>
+    function openTab(id) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active
