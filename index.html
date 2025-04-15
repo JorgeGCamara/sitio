@@ -57,7 +57,7 @@
     <p>Este es el contenido de la segunda pestaña. También puedes usar un iframe aquí si quieres.</p>
   </div>
 
-  <script>
+<script>
     function openTab(id) {
       const tabs = document.querySelectorAll('.tab-content');
       const buttons = document.querySelectorAll('.tab-button');
@@ -66,4 +66,9 @@
       buttons.forEach(btn => btn.classList.remove('active'));
 
       document.getElementById(id).classList.add('active');
-      event.target.classList.add('active
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
